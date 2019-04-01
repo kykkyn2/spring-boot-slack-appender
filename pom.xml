@@ -17,13 +17,7 @@
   </parent>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-    <beanstalk.versionLabel>${maven.build.timestamp}</beanstalk.versionLabel>
   </properties>
 
   <dependencies>
@@ -35,15 +29,29 @@
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-logging</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.maricn</groupId>
-      <artifactId>logback-slack-appender</artifactId>
-      <version>1.4.0</version>
+      <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>./</directory>
+              <filtering>true</filtering>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
