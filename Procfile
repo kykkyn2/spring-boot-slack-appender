@@ -1,0 +1,1 @@
+web: java -Dfile.encoding=EUC-KR -jar kykkyn2-1.0-SNAPSHOT.jar
